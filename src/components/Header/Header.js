@@ -13,12 +13,12 @@ const Header = () => {
     }
     return (
         <div>
-            <nav className="w-full bg-emerald-500 shadow">
+            <nav className="w-full bg-gray-300 shadow ">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div className='flex '>
                         <img className='w-10 h-10 mt-2 rounded-full md:content-center' src={logo} alt="" />
-                        <Link to='/' className="btn btn-ghost normal-case p-3 text-gray-800 text-xl">Easy To Learn</Link>
-                        <h3 className='p-4 text-white'>Welcome! {user?.displayName}</h3>
+                        <Link to='/' className=" p-3 text-gray-800 text-xl">Easy To Learn</Link>
+                        <h3 className='p-4 text-sky-800'>Welcome! {user?.displayName}</h3>
                     </div>
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -66,16 +66,16 @@ const Header = () => {
                             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                 <li className="text-white hover:text-indigo-200">
-                                    <Link to='/' className="btn btn-ghost normal-case text-gray-800 text-xl" >Home</Link>
+                                    <Link to='/' className=" text-gray-800 text-xl" >Home</Link>
                                 </li>
                                 <li className="text-white hover:text-indigo-200">
-                                    <Link to='/courses' className="btn btn-ghost normal-case text-gray-800 text-xl" >Courses</Link>
+                                    <Link to='/courses' className=" text-gray-800 text-xl" >Courses</Link>
                                 </li>
                                 <li className="text-white hover:text-indigo-200">
-                                    <Link to='/faq' className="btn btn-ghost normal-case text-gray-800 text-xl">FAQ</Link>
+                                    <Link to='/faq' className=" text-gray-800 text-xl">FAQ</Link>
                                 </li>
                                 <li className="text-white hover:text-indigo-200">
-                                    <Link to='/blog' className="btn btn-ghost normal-case text-gray-800 text-xl">Blog</Link>
+                                    <Link to='/blog' className=" text-gray-800 text-xl">Blog</Link>
                                 </li>
                                 <li className="text-white hover:text-indigo-200">
                                 </li>
@@ -83,13 +83,13 @@ const Header = () => {
 
                             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
                                 {user?.uid ?
-                                    <button onClick={handleSignOut} className="px-4 py-2 text-gray-800 bg-emerald-200 rounded-md shadow hover:bg-gray-500">Logout
+                                    <button onClick={handleSignOut} className="px-4 py-2 text-gray-800 bg-gray-300 rounded-md shadow hover:bg-gray-500">Logout
                                     </button> :
                                     <>
-                                        <Link to='/login' className="inline-block btn btn-ghost normal-case w-full px-4 py-2 text-center text-white bg-emerald-200 rounded-md shadow hover:bg-gray-800">
+                                        <Link to='/login' className="inline-block btn btn-ghost normal-case w-full px-4 py-2 text-center text-white bg-gray-300 rounded-md shadow hover:bg-gray-800">
                                             Login in
                                         </Link>
-                                        <Link to='/registration' className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-emerald-200 rounded-md shadow hover:bg-gray-500">
+                                        <Link to='/registration' className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-gray-300 rounded-md shadow hover:bg-gray-500">
                                             Registration
                                         </Link>
                                     </>
@@ -118,13 +118,13 @@ const Header = () => {
                     </div>
                     <div className="hidden space-x-2 md:inline-block">
                         {
-                            user?.uid ? <button onClick={handleSignOut} className="px-4 py-2 text-gray-800 bg-emerald-200 rounded-md shadow hover:bg-gray-500">Logout
+                            user?.uid ? <button onClick={handleSignOut} className="px-4 py-2 text-gray-800 bg-gray-300 rounded-md shadow hover:bg-gray-500">Logout
                             </button> :
                                 <>
-                                    <Link to='/login' className="px-4 py-2 text-gray-800 bg-emerald-200 rounded-md shadow hover:bg-gray-500">
+                                    <Link to='/login' className="px-4 py-2 text-gray-800 bg-gray-300 rounded-md shadow hover:bg-gray-500">
                                         Log in
                                     </Link>
-                                    <Link to='/registration' className="px-4 py-2 text-gray-800 bg-emerald-200 rounded-md shadow hover:bg-gray-500">
+                                    <Link to='/registration' className="px-4 py-2 text-gray-800 bg-gray-300 rounded-md shadow hover:bg-gray-500">
                                         Registration
                                     </Link>
                                 </>
@@ -134,7 +134,9 @@ const Header = () => {
                     <div className="dropdown dropdown-end hidden space-x-2 md:inline-block">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src={user?.photoURL} alt="" />
+                            {
+                                user?.uid ? <img src={user?.photoURL} alt="" /> :" "
+                            }
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
