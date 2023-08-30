@@ -13,13 +13,13 @@ const SideNav = () => {
     }, [])
 
     return (
-        <div className='p-2'>
-            <h3 className='text-3xl mb-3 text-amber-50'>All Catagories</h3>
+        <div >
+            <h3 className='text-3xl text-amber-50'>All Catagories</h3>
             <div>
                 {
                     categories.map(category =>
                         <p key={category.id}>
-                            <Link to={`/category/${category.id}`} className='btn btn-group bg-yellow-500 text-white mb-2 w-10/12 '>{category.name}</Link>
+                            <Link to={`/category/${category.id}`} className='btn btn-group bg-blue-400 text-white mb-2 w-10/12 '>{category.name}</Link>
                         </p>)
                 }
             </div>

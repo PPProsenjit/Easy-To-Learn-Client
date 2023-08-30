@@ -7,7 +7,7 @@ const SingleCard = ({course}) => {
 
  
     return (
-        <div className="max-w-lg w-full mt-5 pt-5 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full mt-5 pt-5 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
         <div >
             <img className="p-5 h-75 rounded-t-lg" src={picture} alt="" />
         </div>

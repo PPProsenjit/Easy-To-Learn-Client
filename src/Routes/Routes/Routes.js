@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../components/Blog/Blog";
-import Carousel from "../../components/Carousel/Carousel";
 import Category from "../../components/Category/Category";
 import Courses from "../../components/Courses/Courses";
 import EnrollLogin from "../../components/EnrollLogin/EnrollLogin";
@@ -11,6 +10,7 @@ import LogInPage from "../../components/LonInPage/LogInPage";
 import RegistrationPage from "../../components/RegistrationPage/RegistrationPage";
 import Main from "../../layout/Main";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import Home from "../../components/Home/Home";
 
 export const routes = createBrowserRouter([
     {
@@ -20,7 +20,8 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Carousel></Carousel>
+                element: <Home></Home>,
+                loader: ({ params }) => fetch(`https://easy-to-learn-server.vercel.app/courses`)
             },
             {
                 path: '/registration',

@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/eLogo.jpg';
 import { AuthContext } from '../../contexts/UsersContext';
-import SideNav from '../SideNav/SideNav';
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
     const { user, logOut } = useContext(AuthContext);
@@ -19,8 +18,7 @@ const Header = () => {
                         <img className='w-10 h-10 mt-2 rounded-full md:content-center' src={logo} alt="" />
                         <Link to='/' className=" p-3 text-gray-800 text-xl">Easy To Learn</Link>
                         <h3 className='p-4 text-sky-800'>Welcome! {user?.displayName}</h3>
-                    </div>
-                    <div>
+                   
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
 
                             <div className="md:hidden">
@@ -31,7 +29,7 @@ const Header = () => {
                                     {navbar ? (
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="w-6 h-6 text-white"
+                                            className="w-6 h-6 text-black"
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
                                         >
@@ -44,7 +42,7 @@ const Header = () => {
                                     ) : (
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="w-6 h-6 text-white"
+                                            className="w-6 h-6 text-black"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -81,7 +79,7 @@ const Header = () => {
                                 </li>
                             </ul>
 
-                            <div className="mt-3 space-y-2 lg:hidden md:inline-block">
+                            <div className="mt-3 space-y-2 md:hidden">
                                 {user?.uid ?
                                     <button onClick={handleSignOut} className="px-4 py-2 text-gray-800 bg-gray-300 rounded-md shadow hover:bg-gray-500">Logout
                                     </button> :
@@ -94,9 +92,6 @@ const Header = () => {
                                         </Link>
                                     </>
                                 }
-                                <div>
-                                    <SideNav></SideNav>
-                                </div>
                                 <div>
                                     <div className="dropdown dropdown-end space-x-2 md:inline-block">
                                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -134,9 +129,9 @@ const Header = () => {
                     <div className="dropdown dropdown-end hidden space-x-2 md:inline-block">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                            {
-                                user?.uid ? <img src={user?.photoURL} alt="" /> :" "
-                            }
+                                {
+                                    user?.uid ? <img src={user?.photoURL} alt="" /> : " "
+                                }
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
@@ -146,12 +141,6 @@ const Header = () => {
                                 </Link>
                             </li>
                         </ul>
-                    </div>
-                    <div>
-                        <script>
-                            document.getElementById("my-toggle").indeterminate = true
-                        </script>
-                        <input type="checkbox" className="toggle" id="my-toggle" />
                     </div>
                 </div>
             </nav>

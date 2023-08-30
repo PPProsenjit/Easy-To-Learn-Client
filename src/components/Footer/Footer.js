@@ -5,7 +5,7 @@ const Footer = () => {
     return (
       <div className='mt-5 mb-0'>
         <div>
-            <footer className="footer footer-center p-10 bg-blue-600 text-primary-content">
+            <footer className="footer footer-center p-10 bg-blue-400 text-primary-content">
         <div>
           <img width="50" height="50"  src={logo} fillRule="evenodd" clipRule="evenodd" className="w-20 h-20 rounded-full inline-block fill-current" alt=''/>
           <p className="font-bold">
